@@ -21,12 +21,13 @@ provider:
   stage: ${opt:stage, 'local'}
   profile: ${env:AWS_ACCOUNT_PROFILE}
   region: ${opt:region, env:AWS_ACCOUNT_REGION}
-  vpc:
-    securityGroupIds:
-      - Ref: LambdaSecurityGroup
-    subnetIds:
-      - Ref: PrivateSubnet1
-      - Ref: PrivateSubnet2
+  # (Optional) Specifc vpc that lambda is sitting
+  # vpc:
+  #   securityGroupIds:
+  #     - Ref: LambdaSecurityGroup
+  #   subnetIds:
+  #     - Ref: PrivateSubnet1
+  #     - Ref: PrivateSubnet2
   apiKeys:
     - usagePlan:
         - name: ${self:provider.stackName}-apiKey
@@ -58,8 +59,16 @@ custom:
 # Add all the functions here
 functions:
   - ${file(${self:custom.path.functions}/ping.yml)}
+  - ${file(${self:custom.path.functions}/cors.yml)}
 
 # Add all the additional resources here
 resources:
+  #############################################################################
+  # Resources required for ALB triggered lambda function
   - ${file(${self:custom.path.resources}/vpc.yml)}
   - ${file(${self:custom.path.resources}/lambda.yml)}
+  - ${file(${self:custom.path.resources}/internetGateway.yml)}
+  - ${file(${self:custom.path.resources}/alb.yml)}
+  # (Optional) For lambda that is on custom vpc and requires internet access
+  # - ${file(${self:custom.path.resources}/natGateway.yml)}
+  #############################################################################

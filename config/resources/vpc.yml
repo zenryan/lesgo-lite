@@ -26,73 +26,10 @@ Resources:
       CidrBlock: 10.0.21.0/24
       VpcId:
         Ref: Vpc
-  
-  Eip:
-    Type: AWS::EC2::EIP
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
     Properties:
-      Domain: vpc
-  NatGateway:
-    Type: AWS::EC2::NatGateway
-    Properties:
-      AllocationId:
-        Fn::GetAtt:
-          - Eip
-          - AllocationId
-      SubnetId:
-        Ref: PublicSubnet1
-  PrivateRouteTable:
-    Type: AWS::EC2::RouteTable
-    Properties:
+      AvailabilityZone: ${env:VPC_PUBLIC_SUBNET_2_AZ}
+      CidrBlock: 10.0.22.0/24
       VpcId:
         Ref: Vpc
-  PrivateRoute:
-    Type: AWS::EC2::Route
-    Properties:
-      RouteTableId:
-        Ref: PrivateRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      NatGatewayId:
-        Ref: NatGateway
-  SubnetRouteTableAssociationPrivate1:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId:
-        Ref: PrivateSubnet1
-      RouteTableId:
-        Ref: PrivateRouteTable
-  SubnetRouteTableAssociationPrivate2:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId:
-        Ref: PrivateSubnet2
-      RouteTableId:
-        Ref: PrivateRouteTable
-  InternetGateway:
-    Type: AWS::EC2::InternetGateway
-  VPCGatewayAttachment:
-    Type: AWS::EC2::VPCGatewayAttachment
-    Properties:
-      VpcId:
-        Ref: Vpc
-      InternetGatewayId:
-        Ref: InternetGateway
-  PublicRouteTable:
-    Type: AWS::EC2::RouteTable
-    Properties:
-      VpcId:
-        Ref: Vpc
-  PublicRoute:
-    Type: AWS::EC2::Route
-    Properties:
-      RouteTableId:
-        Ref: PublicRouteTable
-      DestinationCidrBlock: 0.0.0.0/0
-      GatewayId:
-        Ref: InternetGateway
-  SubnetRouteTableAssociationPublic1:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      SubnetId:
-        Ref: PublicSubnet1
-      RouteTableId:
-        Ref: PublicRouteTable

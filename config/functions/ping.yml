@@ -21,3 +21,29 @@ pingAuth:
         method: get
         private: true
         cors: ${self:custom.http.cors}
+
+healthcheck:
+  handler: ${self:custom.path.app}/handlers/healthcheck.handler
+  description: ALB health check
+  timeout: 5
+  reservedConcurrency: 1
+  events:
+    - alb:
+        listenerArn:
+          Ref: HTTPListener
+        priority: 99
+        conditions:
+          path: /healthcheck
+
+albping:
+  handler: ${self:custom.path.app}/handlers/ping.handler
+  description: Ping test from ALB
+  timeout: 5
+  reservedConcurrency: 1
+  events:
+    - alb:
+        listenerArn:
+          Ref: HTTPListener
+        priority: 2
+        conditions:
+          path: /ping
