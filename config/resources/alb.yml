@@ -1,7 +1,6 @@
 #
-# Resource file to create Application Load Balancer includes
-# security group, target groups
-# Application is sitting in vpc created in vpc.yml
+# Resource file to create Application Load Balancer and other required resources
+# i.e Public Subnet, Security Group, Elastic Ip, Route Table, etc
 #
 # @ref https://github.com/pharindoko/serverless-load-balancer/blob/master/serverless.yml
 #

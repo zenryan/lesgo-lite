@@ -56,5 +56,4 @@ functions:
 
 # Add all the additional resources here
 resources:
-  # Resources required for ALB triggered lambda function
   - ${file(${self:custom.path.resources}/alb.yml)}
