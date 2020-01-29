@@ -10,6 +10,108 @@
 #
 
 Resources:
+  #
+  # Vpc - the network where ALB is sited.
+  #
+  Vpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+
+  #
+  # Public Subnet where ALB is sited on.
+  #
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: ${env:VPC_PUBLIC_SUBNET_1_AZ}
+      CidrBlock: 10.0.21.0/24
+      VpcId:
+        Ref: Vpc
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: ${env:VPC_PUBLIC_SUBNET_2_AZ}
+      CidrBlock: 10.0.22.0/24
+      VpcId:
+        Ref: Vpc
+  #
+  # Internet gateway, Elastic Ip, and Route table
+  # attached to 2 Public Subnet required for public-facing ALB
+  #
+  Eip:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+  Eip2:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+  VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId:
+        Ref: Vpc
+      InternetGatewayId:
+        Ref: InternetGateway
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId:
+        Ref: Vpc
+  PublicRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId:
+        Ref: PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId:
+        Ref: InternetGateway
+  SubnetRouteTableAssociationPublic1:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: PublicSubnet1
+      RouteTableId:
+        Ref: PublicRouteTable
+  SubnetRouteTableAssociationPublic2:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId:
+        Ref: PublicSubnet2
+      RouteTableId:
+        Ref: PublicRouteTable
+
+  #
+  # Security Group used by ALB
+  # Allow port 443, 80
+  #
+  SecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupName: ${self:service}
+      GroupDescription: 'HTTPS/HTTPS inbound; Nothing outbound'
+      VpcId: { Ref: Vpc }
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: '80'
+          ToPort: '80'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '443'
+          ToPort: '443'
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          FromPort: '1'
+          ToPort: '1'
+          CidrIp: 127.0.0.1/32
+
+  #
+  # ALB with default 404 HTTP listener
+  #
   LoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
     Properties:
