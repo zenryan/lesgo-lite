@@ -8,15 +8,10 @@ const headers = {
   'Access-Control-Allow-Headers': config.allowHeaders,
 };
 
-const data = {
-  status: 'CORS Pre-flight request OK',
-};
-
 export const handler = async (event, context, callback) => {
   const response = {
     statusCode: 200,
     headers,
-    body: JSON.stringify(data),
   };
 
   return callback(null, response);
