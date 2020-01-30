@@ -47,3 +47,8 @@ albping:
         priority: 2
         conditions:
           path: /ping
+          method: GET
+          header:
+            name: 'x-api-key'
+            values:
+              - 'xxxyyy'
