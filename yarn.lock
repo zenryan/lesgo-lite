@@ -5338,10 +5338,10 @@ left-pad@^1.3.0:
   resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
   integrity sha512-XI5MPzVNApjAyhQzphX8BkmKsKUxD4LdyK24iZeQGinBN9yTQT3bFlCBy/aVx2HrNcqQGsdot8ghrjyrvMCoEA==
 
-lesgo@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/lesgo/-/lesgo-0.3.5.tgz#aa7fffbe89bd2fe5aadcc454159d0c02142e3b19"
-  integrity sha512-ZEaEJlnl2gT+70Ytnr9D1yTeKcNoEgCNWmAjKM0OyZZo1XephV340uZyBBAU48bPIsGGWOFJOhPv8R0OgKv0JA==
+lesgo@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/lesgo/-/lesgo-0.4.0.tgz#e07a30a08943f1d366db9902ff7149cfcb1a3bf4"
+  integrity sha512-Ps0NAUIknsUkXzPmL+8XkbeNnxFif04YNBYOWkSvKfUKrWC2Vy7a49pcNv1JBJiTbswDtjYXAyhf79e9/Tu/mA==
   dependencies:
     "@elastic/elasticsearch" "^7.4.0"
     "@sentry/minimal" "^5.6.1"
@@ -7333,8 +7333,8 @@ serverless-offline@^5.10.1:
 
 serverless-plugin-alb-apikey@^0.1.0:
   version "0.1.0"
-  resolved "https://registry.yarnpkg.com/serverless-plugin-alb-apikey/-/serverless-plugin-alb-apikey-0.1.0.tgz#e920b4bc343b3e008732eca8fa7efd470cc2a236"
-  integrity sha512-MiempgKmYvkSraIUgIhd8dIFFSuxTQtsXUHwOFf+wew1/HMNnKiBSiq1q7oqg/R6BrH94HaOzsQrW0pN/Yr24g==
+  resolved "https://registry.yarnpkg.com/serverless-plugin-alb-apikey/-/serverless-plugin-alb-apikey-0.1.0.tgz#a39c70fadc7bbe92414ea529ff444e1aee7fb409"
+  integrity sha512-DOp4DmNCTtCU5jsW9AT1xzMBQY3/IHFVYKMfpRi0IQCCGHhc3kdsRQhT51Rpj67ufMZmuo+3ZEe5tVhXmMtf6A==
 
 serverless-plugin-log-retention@^2.0.0:
   version "2.0.0"
