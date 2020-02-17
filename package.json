@@ -1,6 +1,6 @@
 {
   "name": "lesgo-lite",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "description": "An even lighter node.js serverless framework",
   "scripts": {
     "start": "sls offline start --stage local --env local --skipCacheInvalidation",
@@ -20,7 +20,7 @@
     "dev-list": "npm ls -g --depth=0 --link=true"
   },
   "dependencies": {
-    "lesgo": "^0.3.5",
+    "lesgo": "^0.4.0",
     "middy": "^0.29.0",
     "serverless-api-compression": "^1.0.1"
   },
@@ -50,6 +50,7 @@
     "prettier": "^1.18.2",
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.10.1",
+    "serverless-plugin-alb-apikey": "^0.1.0",
     "serverless-plugin-log-retention": "^2.0.0",
     "serverless-webpack": "^5.3.1",
     "source-map": "^0.7.3",

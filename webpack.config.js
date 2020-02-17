@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 const path = require('path');
 const slsw = require('serverless-webpack');
-const webpack = require('webpack');
 const AliasPlugin = require('enhanced-resolve/lib/AliasPlugin');
 
 module.exports = {
