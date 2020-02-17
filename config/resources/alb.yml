@@ -44,23 +44,9 @@ Resources:
       VpcId:
         Ref: Vpc
   #
-  # Internet gateway, Elastic Ip, and Route table
+  # Internet gateway, and Route table
   # attached to 2 Public Subnet required for public-facing ALB
   #
-  Eip:
-    Type: AWS::EC2::EIP
-    Properties:
-      Domain: vpc
-      Tags:
-        - Key: Name
-          Value: ${self:provider.stackName}-eip-1
-  Eip2:
-    Type: AWS::EC2::EIP
-    Properties:
-      Domain: vpc
-      Tags:
-        - Key: Name
-          Value: ${self:provider.stackName}-eip-2
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
@@ -164,8 +150,8 @@ Resources:
       Protocol: 'HTTP'
       DefaultActions:
         - Type: 'fixed-response'
-          Order: 1
+          Order: 99
           FixedResponseConfig:
             StatusCode: 404
             ContentType: 'application/json'
-            MessageBody: '{ "not": "found" }'
+            MessageBody: '{ "message": "Route not found" }'
