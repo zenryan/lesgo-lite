@@ -1,6 +1,5 @@
 language: node_js
 node_js:
-  - 10
   - 12
 branches:
   only:
@@ -20,7 +19,7 @@ deploy_service_job: &DEPLOY_SERVICE_JOB
   cache:
     directories:
       - node_modules
-      - ${SERVICE_PATH}/node_modules
+      # - ${SERVICE_PATH}/node_modules
 
   install:
     - yarn global add serverless
