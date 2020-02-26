@@ -23,7 +23,7 @@ deploy_service_job: &DEPLOY_SERVICE_JOB
       - ${SERVICE_PATH}/node_modules
 
   install:
-    - yarn globall add serverless
+    - yarn global add serverless
     - travis_retry yarn install
     - cd ${SERVICE_PATH}
     - travis_retry yarn install
