@@ -32,7 +32,7 @@ deploy_service_job: &DEPLOY_SERVICE_JOB
   script:
     - cd ${SERVICE_PATH}
     - yarn test
-    - yarn deploy -s ${STAGE_NAME}
+    - yarn deploy -y -s ${STAGE_NAME}
     - cd -
 
 environments:
