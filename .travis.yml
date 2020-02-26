@@ -18,7 +18,7 @@ script:
 deploy_service_job: &DEPLOY_SERVICE_JOB
   cache:
     directories:
-      - node_modules
+      # - node_modules
       - ${SERVICE_PATH}/node_modules
 
   install:
