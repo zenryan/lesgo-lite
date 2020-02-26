@@ -7,7 +7,7 @@ branches:
     - develop
 cache:
   directories:
-    - node_modules
+  #  - node_modules
 
 before_script:
   - yarn add git+https://github.com/zenryan/lesgo-framework.git#${TRAVIS_BRANCH}
