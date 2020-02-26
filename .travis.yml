@@ -11,7 +11,7 @@ cache:
     - node_modules
 
 before_script:
-  - yarn add git+https://github.com/reflex-media/lesgo-framework.git#${TRAVIS_BRANCH}
+  - yarn add git+https://github.com/zenryan/lesgo-framework.git#${TRAVIS_BRANCH}
 
 script:
   - yarn coveralls
