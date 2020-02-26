@@ -19,7 +19,7 @@ deploy_service_job: &DEPLOY_SERVICE_JOB
   cache:
     directories:
       - node_modules
-      # - ${SERVICE_PATH}/node_modules
+      - ${SERVICE_PATH}/node_modules
 
   install:
     - yarn global add serverless
@@ -53,20 +53,20 @@ jobs:
         - SERVICE_PATH="services/users-api"
         - STAGE_NAME=development
         - *DEVELOPMENT_ENV
-    - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy Posts API"
-      if: type = push AND NOT branch = master
-      env:
-        - SERVICE_PATH="services/posts-api"
-        - STAGE_NAME=development
-        - *DEVELOPMENT_ENV
-    - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy Cron Job"
-      if: type = push AND NOT branch = master
-      env:
-        - SERVICE_PATH="services/cron-job"
-        - STAGE_NAME=development
-        - *DEVELOPMENT_ENV
+    # - <<: *DEPLOY_SERVICE_JOB
+    #   name: "Deploy Posts API"
+    #   if: type = push AND NOT branch = master
+    #   env:
+    #     - SERVICE_PATH="services/posts-api"
+    #     - STAGE_NAME=development
+    #     - *DEVELOPMENT_ENV
+    # - <<: *DEPLOY_SERVICE_JOB
+    #   name: "Deploy Cron Job"
+    #   if: type = push AND NOT branch = master
+    #   env:
+    #     - SERVICE_PATH="services/cron-job"
+    #     - STAGE_NAME=development
+    #     - *DEVELOPMENT_ENV
 
     # master branch deploys to the 'prod' stage
     - <<: *DEPLOY_SERVICE_JOB
@@ -76,17 +76,17 @@ jobs:
         - SERVICE_PATH="services/users-api"
         - STAGE_NAME=production
         - *PRODUCTION_ENV
-    - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy Posts API"
-      if: type = push AND branch = master
-      env:
-        - SERVICE_PATH="services/posts-api"
-        - STAGE_NAME=production
-        - *PRODUCTION_ENV
-    - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy Cron Job"
-      if: type = push AND branch = master
-      env:
-        - SERVICE_PATH="services/cron-job"
-        - STAGE_NAME=production
-        - *PRODUCTION_ENV
+    # - <<: *DEPLOY_SERVICE_JOB
+    #   name: "Deploy Posts API"
+    #   if: type = push AND branch = master
+    #   env:
+    #     - SERVICE_PATH="services/posts-api"
+    #     - STAGE_NAME=production
+    #     - *PRODUCTION_ENV
+    # - <<: *DEPLOY_SERVICE_JOB
+    #   name: "Deploy Cron Job"
+    #   if: type = push AND branch = master
+    #   env:
+    #     - SERVICE_PATH="services/cron-job"
+    #     - STAGE_NAME=production
+    #     - *PRODUCTION_ENV
