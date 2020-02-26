@@ -15,7 +15,7 @@ const ping = input => {
       logger.error('Sample error exception', { code: ERROR_SAMPLE });
       return reject(new ErrorException('Error exception', ERROR_SAMPLE));
     }
-    console.log('test');
+
     logger.warn('Unknown parameter supplied', { input });
 
     return reject(
