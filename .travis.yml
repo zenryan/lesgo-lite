@@ -13,33 +13,34 @@ cache:
   directories:
    - node_modules
 
-# deploy: &DEPLOY_SERVICE_JOB
-#   cache:
-#     directories:
-#       - node_modules
-#       - ${SERVICE_PATH}/node_modules
+deploy_service_job: &DEPLOY_SERVICE_JOB
+  stage: deploy
+  cache:
+    directories:
+      - node_modules
+      - ${SERVICE_PATH}/node_modules
 
-#   install:
-#     - yarn global add serverless
-#     - travis_retry yarn install || travis_terminate 1;
-#     - cd ${SERVICE_PATH}
-#     - travis_retry yarn install || travis_terminate 1;
-#     - cd -
+  install:
+    - yarn global add serverless
+    - travis_retry yarn install || travis_terminate 1;
+    - cd ${SERVICE_PATH}
+    - travis_retry yarn install || travis_terminate 1;
+    - cd -
 
-#   script:
-#     - cd ${SERVICE_PATH}
-#     - yarn coveralls || travis_terminate 1;
-#     - yarn deploy -y -s ${STAGE_NAME}
-#     - cd -
+  script:
+    - cd ${SERVICE_PATH}
+    - yarn coveralls || travis_terminate 1;
+    - yarn deploy -y -s ${STAGE_NAME}
+    - cd -
 
-# environments:
-#   - &PRODUCTION_ENV
-#     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_PRODUCTION}
-#     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_PRODUCTION}
+environments:
+  - &PRODUCTION_ENV
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_PRODUCTION}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_PRODUCTION}
 
-#   - &DEVELOPMENT_ENV
-#     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_DEVELOPMENT}
-#     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_DEVELOPMENT}
+  - &DEVELOPMENT_ENV
+    - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_DEVELOPMENT}
+    - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_DEVELOPMENT}
 
 jobs:
   include:
@@ -49,11 +50,19 @@ jobs:
 
       script:
         - yarn coveralls
-
-    # - <<: *DEPLOY_SERVICE_JOB
-    #   name: "Deploy lesgo-lite"
-    #   if: type = push AND NOT branch = master
-    #   env:
-    #     - SERVICE_PATH="services/lesgo-lite"
-    #     - STAGE_NAME=development
-    #     - *DEVELOPMENT_ENV
+    # non-master branches deploys to stage named by the branch
+    - <<: *DEPLOY_SERVICE_JOB
+      name: "Deploy lesgo-lite"
+      if: type = push AND NOT branch = master
+      env:
+        - SERVICE_PATH="services/lesgo-lite"
+        - STAGE_NAME=development
+        - *DEVELOPMENT_ENV
+    # master branch deploys to the 'prod' stage
+    - <<: *DEPLOY_SERVICE_JOB
+      name: "Deploy services/lesgo-lite"
+      if: type = push AND branch = master
+      env:
+        - SERVICE_PATH="services/services/lesgo-lite"
+        - STAGE_NAME=production
+        - *PRODUCTION_ENV
