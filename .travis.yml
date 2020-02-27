@@ -26,9 +26,9 @@ deploy_service_job: &DEPLOY_SERVICE_JOB
 
   install:
     - yarn global add serverless
-    - travis_retry yarn install
+    - travis_retry yarn install || travis_terminate 1;
     - cd ${SERVICE_PATH}
-    - travis_retry yarn install
+    - travis_retry yarn install || travis_terminate 1;
     - cd -
 
   script:
