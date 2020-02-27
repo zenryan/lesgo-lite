@@ -13,11 +13,47 @@ cache:
   directories:
    - node_modules
 
+# deploy: &DEPLOY_SERVICE_JOB
+#   cache:
+#     directories:
+#       - node_modules
+#       - ${SERVICE_PATH}/node_modules
+
+#   install:
+#     - yarn global add serverless
+#     - travis_retry yarn install || travis_terminate 1;
+#     - cd ${SERVICE_PATH}
+#     - travis_retry yarn install || travis_terminate 1;
+#     - cd -
+
+#   script:
+#     - cd ${SERVICE_PATH}
+#     - yarn coveralls || travis_terminate 1;
+#     - yarn deploy -y -s ${STAGE_NAME}
+#     - cd -
+
+# environments:
+#   - &PRODUCTION_ENV
+#     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_PRODUCTION}
+#     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_PRODUCTION}
+
+#   - &DEVELOPMENT_ENV
+#     - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID_DEVELOPMENT}
+#     - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY_DEVELOPMENT}
+
 jobs:
   include:
-    - stage: test
+    - stage: unit tests
       before_script:
         - yarn add git+https://github.com/zenryan/lesgo-lite.git#${TRAVIS_BRANCH}
 
       script:
         - yarn coveralls
+
+    # - <<: *DEPLOY_SERVICE_JOB
+    #   name: "Deploy lesgo-lite"
+    #   if: type = push AND NOT branch = master
+    #   env:
+    #     - SERVICE_PATH="services/lesgo-lite"
+    #     - STAGE_NAME=development
+    #     - *DEVELOPMENT_ENV
