@@ -13,8 +13,13 @@ cache:
   directories:
    - node_modules
 
+before_script:
+  - yarn add git+https://github.com/zenryan/lesgo-lite.git#${TRAVIS_BRANCH}
+
+script:
+  - yarn coveralls
+
 deploy_service_job: &DEPLOY_SERVICE_JOB
-  stage: deploy
   cache:
     directories:
       - node_modules
@@ -44,12 +49,6 @@ environments:
 
 jobs:
   include:
-    - stage: unit tests
-      before_script:
-        - yarn add git+https://github.com/zenryan/lesgo-lite.git#${TRAVIS_BRANCH}
-
-      script:
-        - yarn coveralls
     # non-master branches deploys to stage named by the branch
     - <<: *DEPLOY_SERVICE_JOB
       name: "Deploy lesgo-lite"
