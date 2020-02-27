@@ -7342,6 +7342,11 @@ serverless-offline@^5.10.1:
     update-notifier "^3.0.1"
     velocityjs "^1.1.5"
 
+serverless-plugin-alb-apikey@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/serverless-plugin-alb-apikey/-/serverless-plugin-alb-apikey-0.1.0.tgz#a39c70fadc7bbe92414ea529ff444e1aee7fb409"
+  integrity sha512-DOp4DmNCTtCU5jsW9AT1xzMBQY3/IHFVYKMfpRi0IQCCGHhc3kdsRQhT51Rpj67ufMZmuo+3ZEe5tVhXmMtf6A==
+
 serverless-plugin-log-retention@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/serverless-plugin-log-retention/-/serverless-plugin-log-retention-2.0.0.tgz#da0b5b6d01a5b19c6fd6d3e0e36642f1fc5739ad"
