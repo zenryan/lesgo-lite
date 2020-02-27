@@ -33,7 +33,7 @@ deploy_service_job: &DEPLOY_SERVICE_JOB
 
   script:
     - cd ${SERVICE_PATH}
-    - yarn coveralls
+    - yarn coveralls || travis_terminate 1;
     - yarn deploy -y -s ${STAGE_NAME}
     - cd -
 
