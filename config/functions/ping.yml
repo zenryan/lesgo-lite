@@ -55,10 +55,10 @@ albPingAuth:
   reservedConcurrency: 1
   events:
     - alb:
-      listenerArn:
-        Ref: HTTPListener
-      priority: 2
-      conditions:
-        path: /ping/auth
-      apiKey:
-        - ${env:AWS_ALB_API_KEY}
+        listenerArn:
+          Ref: HTTPListener
+        priority: 2
+        conditions:
+          path: /ping/auth
+        apiKey:
+          - ${env:AWS_ALB_API_KEY}
