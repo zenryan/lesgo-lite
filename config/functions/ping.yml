@@ -50,7 +50,7 @@ albping:
 
 albPingAuth:
   handler: ${self:custom.path.app}/handlers/ping.handler
-  description: Ping test from ALB
+  description: Ping auth test from ALB
   timeout: 5
   reservedConcurrency: 1
   events:
