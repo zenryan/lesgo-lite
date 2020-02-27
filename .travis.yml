@@ -12,11 +12,11 @@ cache:
   directories:
    - node_modules
 
-before_script:
-  - yarn add git+https://github.com/zenryan/lesgo-lite.git#${TRAVIS_BRANCH}
+# before_script:
+#   - yarn add git+https://github.com/zenryan/lesgo-lite.git#${TRAVIS_BRANCH}
 
-script:
-  - yarn coveralls
+# script:
+#   - yarn coveralls
 
 deploy_service_job: &DEPLOY_SERVICE_JOB
   cache:
@@ -48,48 +48,27 @@ environments:
 
 jobs:
   include:
-    # non-master branches deploys to stage named by the branch
-    - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy lesgo-lite"
-      if: type = push AND NOT branch = master
-      env:
-        - SERVICE_PATH="services/lesgo-lite"
-        - STAGE_NAME=development
-        - *DEVELOPMENT_ENV
-    # - <<: *DEPLOY_SERVICE_JOB
-    #   name: "Deploy Posts API"
-    #   if: type = push AND NOT branch = master
-    #   env:
-    #     - SERVICE_PATH="services/posts-api"
-    #     - STAGE_NAME=development
-    #     - *DEVELOPMENT_ENV
-    # - <<: *DEPLOY_SERVICE_JOB
-    #   name: "Deploy Cron Job"
-    #   if: type = push AND NOT branch = master
-    #   env:
-    #     - SERVICE_PATH="services/cron-job"
-    #     - STAGE_NAME=development
-    #     - *DEVELOPMENT_ENV
+    - stage: test
+      before_script:
+        - yarn add git+https://github.com/zenryan/lesgo-lite.git#${TRAVIS_BRANCH}
+      script:
+        - yarn coveralls
 
-    # master branch deploys to the 'prod' stage
-    - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy services/lesgo-lite"
-      if: type = push AND branch = master
-      env:
-        - SERVICE_PATH="services/services/lesgo-lite"
-        - STAGE_NAME=production
-        - *PRODUCTION_ENV
-    # - <<: *DEPLOY_SERVICE_JOB
-    #   name: "Deploy Posts API"
-    #   if: type = push AND branch = master
-    #   env:
-    #     - SERVICE_PATH="services/posts-api"
-    #     - STAGE_NAME=production
-    #     - *PRODUCTION_ENV
-    # - <<: *DEPLOY_SERVICE_JOB
-    #   name: "Deploy Cron Job"
-    #   if: type = push AND branch = master
-    #   env:
-    #     - SERVICE_PATH="services/cron-job"
-    #     - STAGE_NAME=production
-    #     - *PRODUCTION_ENV
+    - stage: deploy
+      # non-master branches deploys to stage named by the branch
+      - <<: *DEPLOY_SERVICE_JOB
+        name: "Deploy lesgo-lite"
+        if: type = push AND NOT branch = master
+        env:
+          - SERVICE_PATH="services/lesgo-lite"
+          - STAGE_NAME=development
+          - *DEVELOPMENT_ENV
+
+      # master branch deploys to the 'prod' stage
+      - <<: *DEPLOY_SERVICE_JOB
+        name: "Deploy services/lesgo-lite"
+        if: type = push AND branch = master
+        env:
+          - SERVICE_PATH="services/services/lesgo-lite"
+          - STAGE_NAME=production
+          - *PRODUCTION_ENV
