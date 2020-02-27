@@ -61,5 +61,4 @@ albPingAuth:
       conditions:
         path: /ping/auth
       apiKey:
-        - ${env:SEEKING_AWS_ALB_API_KEY}
-        - ${env:WYP_AWS_ALB_API_KEY}
+        - ${env:AWS_ALB_API_KEY}
