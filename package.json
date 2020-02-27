@@ -51,6 +51,7 @@
     "serverless-dotenv-plugin": "^2.1.1",
     "serverless-offline": "^5.10.1",
     "serverless-plugin-log-retention": "^2.0.0",
+    "serverless-plugin-alb-apikey": "^0.1.0",
     "serverless-webpack": "^5.3.1",
     "source-map": "^0.7.3",
     "terser-webpack-plugin": "^2.2.1",

@@ -10,7 +10,7 @@ branches:
     - develop
 cache:
   directories:
-  #  - node_modules
+   - node_modules
 
 before_script:
   - yarn add git+https://github.com/zenryan/lesgo-lite.git#${TRAVIS_BRANCH}
@@ -21,7 +21,7 @@ script:
 deploy_service_job: &DEPLOY_SERVICE_JOB
   cache:
     directories:
-      # - node_modules
+      - node_modules
       - ${SERVICE_PATH}/node_modules
 
   install:
@@ -33,7 +33,7 @@ deploy_service_job: &DEPLOY_SERVICE_JOB
 
   script:
     - cd ${SERVICE_PATH}
-    - yarn test
+    - yarn coveralls
     - yarn deploy -y -s ${STAGE_NAME}
     - cd -
 
@@ -50,10 +50,10 @@ jobs:
   include:
     # non-master branches deploys to stage named by the branch
     - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy Users API"
+      name: "Deploy lesgo-lite"
       if: type = push AND NOT branch = master
       env:
-        - SERVICE_PATH="services/users-api"
+        - SERVICE_PATH="services/lesgo-lite"
         - STAGE_NAME=development
         - *DEVELOPMENT_ENV
     # - <<: *DEPLOY_SERVICE_JOB
@@ -73,10 +73,10 @@ jobs:
 
     # master branch deploys to the 'prod' stage
     - <<: *DEPLOY_SERVICE_JOB
-      name: "Deploy Users API"
+      name: "Deploy services/lesgo-lite"
       if: type = push AND branch = master
       env:
-        - SERVICE_PATH="services/users-api"
+        - SERVICE_PATH="services/services/lesgo-lite"
         - STAGE_NAME=production
         - *PRODUCTION_ENV
     # - <<: *DEPLOY_SERVICE_JOB
