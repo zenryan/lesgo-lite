@@ -47,3 +47,19 @@ albping:
         priority: 2
         conditions:
           path: /ping
+
+albPingAuth:
+  handler: ${self:custom.path.app}/handlers/ping.handler
+  description: Ping test from ALB
+  timeout: 5
+  reservedConcurrency: 1
+  events:
+    - alb:
+      listenerArn:
+        Ref: HTTPListener
+      priority: 2
+      conditions:
+        path: /ping/auth
+      apiKey:
+        - ${env:SEEKING_AWS_ALB_API_KEY}
+        - ${env:WYP_AWS_ALB_API_KEY}
