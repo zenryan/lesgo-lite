@@ -1,26 +1,26 @@
-ping:
-  handler: ${self:custom.path.app}/handlers/ping.handler
-  description: Ping test
-  timeout: 5
-  reservedConcurrency: 1
-  events:
-    - http:
-        path: ping
-        method: get
-        private: false
-        cors: ${self:custom.http.cors}
+# ping:
+#   handler: ${self:custom.path.app}/handlers/ping.handler
+#   description: Ping test
+#   timeout: 5
+#   reservedConcurrency: 1
+#   events:
+#     - http:
+#         path: ping
+#         method: get
+#         private: false
+#         cors: ${self:custom.http.cors}
 
-pingAuth:
-  handler: ${self:custom.path.app}/handlers/ping.handler
-  description: Ping test with authentication
-  timeout: 5
-  reservedConcurrency: 1
-  events:
-    - http:
-        path: ping/auth
-        method: get
-        private: true
-        cors: ${self:custom.http.cors}
+# pingAuth:
+#   handler: ${self:custom.path.app}/handlers/ping.handler
+#   description: Ping test with authentication
+#   timeout: 5
+#   reservedConcurrency: 1
+#   events:
+#     - http:
+#         path: ping/auth
+#         method: get
+#         private: true
+#         cors: ${self:custom.http.cors}
 
 healthcheck:
   handler: ${self:custom.path.app}/handlers/healthcheck.handler
@@ -47,3 +47,18 @@ albping:
         priority: 2
         conditions:
           path: /ping
+
+albPingAuth:
+  handler: ${self:custom.path.app}/handlers/ping.handler
+  description: Ping auth test from ALB
+  timeout: 5
+  reservedConcurrency: 1
+  events:
+    - alb:
+        listenerArn:
+          Ref: HTTPListener
+        priority: 2
+        conditions:
+          path: /ping/auth
+        apiKey:
+          - ${env:AWS_ALB_API_KEY}

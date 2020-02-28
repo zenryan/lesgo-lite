@@ -23,3 +23,6 @@ yarn-error.log
 
 # log files
 logs/*.log
+
+# coveralls
+.coveralls.yml

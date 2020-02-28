@@ -753,9 +753,9 @@
     minimist "^1.2.0"
 
 "@elastic/elasticsearch@^7.4.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.5.0.tgz#a54b07001e1a3912792bf9f34e6ec6a4fe0aef0c"
-  integrity sha512-ahzu451ppXepQMb3Zr8eFfWn8QR7yCcUWQjU1dS4X63Ctin0GNwwSPertt4WwDkm6MnZ25o932wAEgyMFLwzdA==
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/@elastic/elasticsearch/-/elasticsearch-7.6.0.tgz#960e937b56826b53d4784bc48f3375ce4efc5377"
+  integrity sha512-mCS0gro7KM9fhPpRXf+X0Bxd2j688ONqhj2fibhU2E3vup6rmNgH0bw3Vuvv98D8MmFl2oCxwtv3a/Km/K8F6Q==
   dependencies:
     debug "^4.1.1"
     decompress-response "^4.2.0"
@@ -1342,16 +1342,16 @@
   integrity sha512-8+KAKzEvSUdeo+kmqnKrqgeE+LcA0tjYWFY7RPProVYwnqDjukzO+3b6dLD56rYX5TdWejnEOLJYOIeh4CXKuA==
 
 "@types/mysql@^2.15.6":
-  version "2.15.8"
-  resolved "https://registry.yarnpkg.com/@types/mysql/-/mysql-2.15.8.tgz#305172ee6ec530acd16a713f680dbfb4399960a8"
-  integrity sha512-l0TUdg6KDEaLO75/yjdjksobJDRWv8iZlpRfv/WW1lQZCQDKdTDnKCkeH10oapzP/JTuKiTy6Cvq/sm/0GgcUw==
+  version "2.15.9"
+  resolved "https://registry.yarnpkg.com/@types/mysql/-/mysql-2.15.9.tgz#2fd4aaa5db9bada88c9d36caab22008214b84653"
+  integrity sha512-rB3w3/YEV11oIoL56iP4OPt6uLkcuu6oIqbUy8T2bSm/ZUYN0fvyyzzrZBDNYL//zRStdmSsUPZDtHXjdR1hTA==
   dependencies:
     "@types/node" "*"
 
 "@types/node@*":
-  version "13.1.8"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.1.8.tgz#1d590429fe8187a02707720ecf38a6fe46ce294b"
-  integrity sha512-6XzyyNM9EKQW4HKuzbo/CkOIjn/evtCmsU+MUM1xDfJ+3/rNjBttM1NgN7AOQvN6tP1Sl1D1PIKMreTArnxM9A==
+  version "13.7.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-13.7.6.tgz#cb734a7c191472ae6a2b3a502b4dfffcea974113"
+  integrity sha512-eyK7MWD0R1HqVTp+PtwRgFeIsemzuj4gBFSQxfPHY5iMjS7474e5wq+VFgTcdpyHeNxyKSaetYAjdMLJlKoWqA==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -2570,10 +2570,15 @@ commander@^2.20.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
-commander@^4.0.1, commander@^4.1.0:
+commander@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.0.tgz#545983a0603fe425bc672d66c9e3c89c42121a83"
   integrity sha512-NIQrwvv9V39FHgGFm36+U9SMQzbiHvU79k+iADraJTpmrFFfx7Ds0IvDoAdZsDrknlkRk14OYoWXb57uTh7/sw==
+
+commander@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
+  integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -5293,13 +5298,13 @@ kleur@^3.0.3:
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
 knex@^0.20.1:
-  version "0.20.8"
-  resolved "https://registry.yarnpkg.com/knex/-/knex-0.20.8.tgz#b41c72773185e1032f4a77074198413521827860"
-  integrity sha512-fLiSg5PIBisORs0M+UGjg2s1P/E1BrYvb/NkSVk6Y90HJujkqLufSC6ag+hDgXqW73mFAF283M6+q3/NW0TrHw==
+  version "0.20.10"
+  resolved "https://registry.yarnpkg.com/knex/-/knex-0.20.10.tgz#48c22abe38fdc6856b5e9d948685ca009b3fbd77"
+  integrity sha512-07D6fvY5NdvrfRPmkLLG+OrHvmAy55OX7eXkN8TMiOOI5lWJh1dC2zKjeEQJqUILMOsTnZCGqTKGaRm4t1E9xg==
   dependencies:
     bluebird "^3.7.2"
     colorette "1.1.0"
-    commander "^4.1.0"
+    commander "^4.1.1"
     debug "4.1.1"
     esm "^3.2.25"
     getopts "2.2.5"
@@ -5311,7 +5316,7 @@ knex@^0.20.1:
     pg-connection-string "2.1.0"
     tarn "^2.0.0"
     tildify "2.0.0"
-    uuid "^3.3.3"
+    uuid "^3.4.0"
     v8flags "^3.1.3"
 
 latest-version@^5.0.0:
@@ -5338,10 +5343,9 @@ left-pad@^1.3.0:
   resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
   integrity sha512-XI5MPzVNApjAyhQzphX8BkmKsKUxD4LdyK24iZeQGinBN9yTQT3bFlCBy/aVx2HrNcqQGsdot8ghrjyrvMCoEA==
 
-lesgo@^0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/lesgo/-/lesgo-0.3.5.tgz#aa7fffbe89bd2fe5aadcc454159d0c02142e3b19"
-  integrity sha512-ZEaEJlnl2gT+70Ytnr9D1yTeKcNoEgCNWmAjKM0OyZZo1XephV340uZyBBAU48bPIsGGWOFJOhPv8R0OgKv0JA==
+"lesgo@https://github.com/zenryan/lesgo-framework.git#feature/script-allow-no-interaction":
+  version "0.4.0"
+  resolved "https://github.com/zenryan/lesgo-framework.git#553f44674eb1503a73afdcecb1343632129f40ae"
   dependencies:
     "@elastic/elasticsearch" "^7.4.0"
     "@sentry/minimal" "^5.6.1"
@@ -5816,9 +5820,9 @@ mimic-response@^1.0.0, mimic-response@^1.0.1:
   integrity sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
 
 mimic-response@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-2.0.0.tgz#996a51c60adf12cb8a87d7fb8ef24c2f3d5ebb46"
-  integrity sha512-8ilDoEapqA4uQ3TwS0jakGONKXVJqpy+RpM+3b7pLdOjghCrEiGp9SRkFbUHAmZW9vdnrENWHjaweIoTIJExSQ==
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-2.1.0.tgz#d13763d35f613d09ec37ebb30bac0469c0ee8f43"
+  integrity sha512-wXqjST+SLt7R009ySCglWBCFpjUygmCIfD790/kVbiGmUgfYGuB14PiTd5DwVxSV4NcYHjzMkoj5LjQZwTQLEA==
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
@@ -5943,10 +5947,10 @@ mute-stream@0.0.8:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.8.tgz#1630c42b2251ff81e2a283de96a5497ea92e5e0d"
   integrity sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
 
-mysql@^2.17.1:
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/mysql/-/mysql-2.18.0.tgz#32b8163d92422c3345f62d5fa696172187975b17"
-  integrity sha512-juoIQE2FAoa0qRX5gReXvxDJph6Pqdx4X7aJ2HBe9GRNPIYQIiOgfrFNd3AQ8FtyeKEx3eNNnrtcVIAchc/NOw==
+mysql@^2.18.1:
+  version "2.18.1"
+  resolved "https://registry.yarnpkg.com/mysql/-/mysql-2.18.1.tgz#2254143855c5a8c73825e4522baf2ea021766717"
+  integrity sha512-Bca+gk2YWmqp2Uf6k5NFEurwY/0td0cpebAucFpY/3jhrwrVGuxU2uQFCHjU19SJfje0yQvi+rVWdq78hR5lig==
   dependencies:
     bignumber.js "9.0.0"
     readable-stream "2.3.7"
@@ -7089,7 +7093,14 @@ resolve@1.1.7:
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
   integrity sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
 
-resolve@^1.1.6, resolve@^1.1.7, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.3.2, resolve@^1.8.1:
+resolve@^1.1.6, resolve@^1.1.7:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.15.1.tgz#27bdcdeffeaf2d6244b95bb0f9f4b4653451f3e8"
+  integrity sha512-84oo6ZTtoTUpjgNEr5SJyzQhzL72gaRodsSfyxC/AXRvwu0Yse9H8eF9IpGo7b8YetZhlI6v7ZQ6bKBFV/6S7w==
+  dependencies:
+    path-parse "^1.0.6"
+
+resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.3.2, resolve@^1.8.1:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.15.0.tgz#1b7ca96073ebb52e741ffd799f6b39ea462c67f5"
   integrity sha512-+hTmAldEGE80U2wJJDC1lebb5jWqvTYAfm3YZ1ckk1gBr0MnCqUKlwK1e+anaFljIl+F5tR5IoZcm4ZDA1zMQw==
@@ -7303,11 +7314,11 @@ serverless-dotenv-plugin@^2.1.1:
     dotenv-expand "^4.0.1"
 
 serverless-mysql@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/serverless-mysql/-/serverless-mysql-1.5.2.tgz#69f4cd058511089a15f07d383b8d34bf48d883d4"
-  integrity sha512-r06MzaT/OShCP8rem5SIm6OdmQ0+L7vGEjDpWyjAlsvCAKoxrC+aKlyzfEIzbeqAdfPzTKNA5NnWiI7MlX6RSA==
+  version "1.5.3"
+  resolved "https://registry.yarnpkg.com/serverless-mysql/-/serverless-mysql-1.5.3.tgz#ffababe638ebf9313e98e75c8a841cd97b70479c"
+  integrity sha512-ytRbLjSmSN5FvGFDkxN0Zx6NBKdxVqk7gHKPeqWBdOBjAKVzElWfZEE9QBwsKTFo/dC7dqUqOThwMwKckuILkw==
   dependencies:
-    mysql "^2.17.1"
+    mysql "^2.18.1"
   optionalDependencies:
     "@types/mysql" "^2.15.6"
 
@@ -7330,6 +7341,11 @@ serverless-offline@^5.10.1:
     trim-newlines "^3.0.0"
     update-notifier "^3.0.1"
     velocityjs "^1.1.5"
+
+serverless-plugin-alb-apikey@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/serverless-plugin-alb-apikey/-/serverless-plugin-alb-apikey-0.1.0.tgz#a39c70fadc7bbe92414ea529ff444e1aee7fb409"
+  integrity sha512-DOp4DmNCTtCU5jsW9AT1xzMBQY3/IHFVYKMfpRi0IQCCGHhc3kdsRQhT51Rpj67ufMZmuo+3ZEe5tVhXmMtf6A==
 
 serverless-plugin-log-retention@^2.0.0:
   version "2.0.0"
@@ -8333,7 +8349,7 @@ uuid@3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-uuid@^3.3.2, uuid@^3.3.3:
+uuid@^3.3.2, uuid@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
