@@ -57,7 +57,7 @@ albPingAuth:
     - alb:
         listenerArn:
           Ref: HTTPListener
-        priority: 2
+        priority: 3
         conditions:
           path: /ping/auth
         apiKey:
